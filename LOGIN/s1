@@ -1,0 +1,332 @@
+
+//-----1------#
+
+remote_type_src:
+ src="https://static.licdn.com:443/scds/common/u/lib/fizzy/fz-1.3.8-min.js" type="text/javascript"
+
+//-----1------#
+
+//-----2------#
+
+local_type_:
+ type="text/javascript"
+fs.config({
+    "failureRedirect": "http://www.linkedin.com/",
+    "uniEscape": true,
+    "xhrHeaders": {
+        "X-FS-Origin-Request": "/hp/",
+        "X-FS-Page-Id": ""
+    }
+});
+
+//-----2------#
+
+//-----3------#
+
+local_type_:
+ type="text/javascript"
+fs._server.fire("guest-home", {
+    event: "before",
+    type: "html"
+});
+
+//-----3------#
+
+//-----4------#
+
+local_type_:
+ type="text/javascript"
+window.HEAD_LOAD_TIMESTAMP = Date.now();
+
+//-----4------#
+
+//-----5------#
+
+local_type_:
+ type="application/ld+json"
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.linkedin.com/",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.linkedin.com/vsearch/f?type=all&keywords=",
+        "query-input": "required name=search_term"
+    }
+}
+
+//-----5------#
+
+//-----6------#
+
+local_type_:
+ type="text/javascript"
+var jsRandomCalculator = (function() {
+    function compute(n, email, ts) {
+        try {
+            var vs = n.split(":"),
+                ts = parseInt(ts),
+                len = vs.length,
+                i, v, f1_out, f2_out;
+            for (i = 0; i < len; i++) {
+                vs[i] = parseInt(vs[i], 10);
+            }
+            f1_out = f1(vs, ts);
+            f2_out = f2(f1_out, ts);
+            if (f1_out[0] % 1000 > f1_out[1] % 1000) {
+                v = f1_out[0];
+            } else {
+                v = f1_out[1];
+            }
+            return f3(v, f2_out, email);
+        } catch (err) {
+            return -1;
+        }
+    }
+
+    function computeJson(input) {
+        return compute(input.n, input.email, input.ts);
+    }
+
+    function f1(vs, ts) {
+        var output = [],
+            i;
+        output[0] = vs[0] + vs[1] + vs[2];
+        output[1] = (vs[0] % 100 + 30) * (vs[1] % 100 + 30) * (vs[2] % 100 + 30);
+        for (i = 0; i < 10; i++) {
+            output[0] += (output[1] % 1000 + 500) * (ts % 1000 + 500);
+            output[1] += (output[0] % 1000 + 500) * (ts % 1000 + 500);
+        }
+        return output;
+    }
+
+    function f2(vs, ts) {
+        var sum = vs[0] + vs[1],
+            n = sum % 3000,
+            m = sum % 10000,
+            p = ts % 10000;
+        if (n < 1000) {
+            return Math.pow(m + 12345, 2) + Math.pow(p + 34567, 2);
+        } else if (n < 2000) {
+            return Math.pow(m + 23456, 2) + Math.pow(p + 23456, 2);
+        } else {
+            return Math.pow(m + 34567, 2) + Math.pow(p + 12345, 2);
+        }
+    }
+
+    function f3(v1, v2, email) {
+        var len = email.length,
+            v3 = 0,
+            i = 0;
+        for (; i < len; i++) {
+            v3 += email.charCodeAt(i) << ((5 * i) % 32);
+        }
+        return (v1 * v2 * v3) % 1000000007;
+    }
+    return {
+        compute: compute,
+        computeJson: computeJson,
+        version: "1.0.1"
+    };
+}());
+
+//-----6------#
+
+//-----7------#
+
+remote_type_src:
+ type="text/javascript" src="https://static.licdn.com/sc/h/2cqbwpy8lxmr5m4ce8geil3bi"
+
+//-----7------#
+
+//-----8------#
+
+local_type_:
+
+if (dust) {
+    dust.debugLevel = "NONE";
+}
+
+//-----8------#
+
+//-----9------#
+
+remote_type_src:
+ src="https://static.licdn.com/sc/p/com.linkedin.nux%3Anux-static-content%2B0.0.2535/f/%2Fnux-frontend%2Fsc-hashes%2Fsc-hashes_en_US.js"
+
+//-----9------#
+
+//-----10------#
+
+remote_type_src:
+ src="https://static.licdn.com/sc/h/3b9tpoh48fk2t0ispirud0jei"
+
+//-----10------#
+
+//-----11------#
+
+local_type_:
+
+(function(root) {
+    var jsRoutes = {};
+    (function(_root) {
+        var _nS = function(c, f, b) {
+            var e = c.split(f || "."),
+                g = b || _root,
+                d, a;
+            for (d = 0, a = e.length; d < a; d++) {
+                g = g[e[d]] = g[e[d]] || {}
+            }
+            return g
+        }
+        var _qS = function(items) {
+            var qs = '';
+            for (var i = 0; i < items.length; i++) {
+                if (items[i]) qs += (qs ? '&' : '') + items[i]
+            };
+            return qs ? ('?' + qs) : ''
+        }
+        var _s = function(p, s) {
+            return p + ((s === true || (s && s.secure)) ? 's' : '') + '://'
+        }
+        var _wA = function(r) {
+            return {
+                ajax: function(c) {
+                    c = c || {};
+                    c.url = r.url;
+                    c.type = r.method;
+                    return jQuery.ajax(c)
+                },
+                method: r.method,
+                type: r.method,
+                url: r.url,
+                absoluteURL: function(s) {
+                    return _s('http', s) + 'www.linkedin.com' + r.url
+                },
+                webSocketURL: function(s) {
+                    return _s('ws', s) + 'www.linkedin.com' + r.url
+                }
+            }
+        }
+        _nS('com.linkedin.uno.reg.RegApiController');
+        _root.com.linkedin.uno.reg.RegApiController.createAccount = function() {
+            return _wA({
+                method: "POST",
+                url: "/start/" + "reg/api/createAccount"
+            })
+        }
+        _nS('com.linkedin.assets.AssetsController');
+        _root.com.linkedin.assets.AssetsController.at = function(file) {
+            return _wA({
+                method: "GET",
+                url: "/start/" + "assets/" + (function(k, v) {
+                    return v
+                })("file", file)
+            })
+        }
+        _nS('com.linkedin.uno.onboarding.OnboardingWebController');
+        _root.com.linkedin.uno.onboarding.OnboardingWebController.editProfile = function() {
+            return _wA({
+                method: "GET",
+                url: "/start/" + "edit-profile"
+            })
+        }
+        _nS('com.linkedin.uno.onboarding.OnboardingWebController');
+        _root.com.linkedin.uno.onboarding.OnboardingWebController.goalsPage = function() {
+            return _wA({
+                method: "GET",
+                url: "/start/" + "goals"
+            })
+        }
+        _nS('com.linkedin.uno.onboarding.OnboardingWebController');
+        _root.com.linkedin.uno.onboarding.OnboardingWebController.takeOverPage = function(firstGroupId) {
+            return _wA({
+                method: "GET",
+                url: "/start/" + _qS([(firstGroupId == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("firstGroupId", firstGroupId))])
+            })
+        }
+        _nS('com.linkedin.uno.onboarding.OnboardingWebController');
+        _root.com.linkedin.uno.onboarding.OnboardingWebController.setupPage = function(firstGroupId) {
+            return _wA({
+                method: "GET",
+                url: "/start/" + "setup" + _qS([(firstGroupId == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("firstGroupId", firstGroupId))])
+            })
+        }
+        _nS('com.linkedin.uno.reg.RegWebController');
+        _root.com.linkedin.uno.reg.RegWebController.joinCold = function(goback, session_redirect, trk, track, source) {
+            return _wA({
+                method: "GET",
+                url: "/start/" + "join" + _qS([(goback == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("goback", goback)), (session_redirect == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("session_redirect", session_redirect)), (trk == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("trk", trk)), (track == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("track", track)), (source == null ? null : (function(k, v) {
+                    return v != null ? (function(k, v) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(v)
+                    })(k, v) : ''
+                })("source", source))])
+            })
+        }
+    })(jsRoutes);
+    root.play = root.play || {};
+    root.play.jsRoutes = jsRoutes;
+})(this);
+
+//-----11------#
+
+//-----12------#
+
+remote_type_src:
+ type="text/javascript" src="https://static.licdn.com/sc/h/94kvwzb4ca2cqle602qift40f,87au2x2ggv8lwb4m3d9x5nvmr,e5umo76hxkr4p5c07js11cnyx,b7y2zgblb4up876llj6eqw1cy"
+
+//-----12------#
+
+//-----13------#
+
+remote_type_src:
+ type="text/javascript" src="https://static.licdn.com/sc/h/6xs444t7hf0metask8ptq8uqu,b8fzp3fud9k6bxniv9h274mcb,bqre1ja71k63k5szco9lq9xue"
+
+//-----13------#
+
+//-----14------#
+
+local_type_:
+ type="text/javascript"
+window.addEventListener('load', function() {
+    window.RUM_PATH = play.concatJsUrl('rumCore');
+    window.RUM_POST_URL = play.addCsrfTokenToUrl("https:\/\/www.linkedin.com\/lite\/rum-track");
+    play.getScript(RUM_PATH);
+});
+
+//-----14------#
+
+//-----15------#
+
+local_type_:
+ type="text/javascript"
+fs._server.fire("guest-home", {
+    event: "after",
+    type: "html"
+});
+
+//-----15------#
