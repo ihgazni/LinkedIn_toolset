@@ -9,7 +9,7 @@ User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, 
 Accept-Encoding: gzip,deflate,sdch
 Accept-Language: zh-CH,zh;q=0.8'''
 
-login_rslt = linkedin_login('terryinzaghi@163.com','3edc4rfV',H_string)
+login_rslt = linkedin_login('XXXXXXXX','XXXXXXXX',H_string)
 
 url = login_rslt['location']
 
