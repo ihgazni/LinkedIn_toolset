@@ -679,5 +679,5 @@ def linkedin_login(email_address,passwd):
     return(rslt)
 
 
-#login_rslt = linkedin_login('terryinzaghi@163.com','3edc4rfV')
+#login_rslt = linkedin_login('XXXXXXXX','XXXXXXXX')
 
